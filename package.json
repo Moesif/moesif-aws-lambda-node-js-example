@@ -1,0 +1,29 @@
+{
+  "name": "moesif-aws-lambda-example",
+  "version": "1.0.1",
+  "description": "An example for using moesif middleware for AWS Lambda",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moesif/moesif-aws-lambda-node-js-example"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "keywords": [
+    "moesif",
+    "express"
+  ],
+  "author": "Xing Wang",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "moesif-aws-lambda": "^1.2.4"
+  },
+  "engines": {
+    "node": "8.9.1"
+  },
+  "devDependencies": {
+    "mocha": "^6.0.2"
+  }
+}
