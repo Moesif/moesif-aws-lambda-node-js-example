@@ -18,7 +18,7 @@
   "author": "Xing Wang",
   "license": "Apache-2.0",
   "dependencies": {
-    "moesif-aws-lambda": "^1.2.5"
+    "moesif-aws-lambda": "^1.2.7"
   },
   "engines": {
     "node": "8.9.1"

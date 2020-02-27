@@ -2,6 +2,7 @@
  * This file is an example AWS Lambda function.
  */
 const moesif = require('moesif-aws-lambda');
+const https = require('https');
 console.log('Loading function');
 
 const moesifOptions = {
@@ -13,7 +14,29 @@ const moesifOptions = {
     }
 };
 
+var moesifMiddleware = moesif(moesifOptions);
+moesifMiddleware.startCaptureOutgoing();
+
 exports.handler = function (event, context, callback) {
+    // Outgoing API call to third party
+    https.get(
+        {
+          host: 'jsonplaceholder.typicode.com',
+          path: '/posts/1'
+        },
+        function(res) {
+          var body = '';
+          res.on('data', function(d) {
+            body += d;
+          });
+
+          res.on('end', function() {
+            var parsed = JSON.parse(body);
+            console.log(parsed);
+          });
+        }
+      );
+
     callback(null, {
         statusCode: '200',
         body: JSON.stringify({key: 'hello world'}),
@@ -22,5 +45,16 @@ exports.handler = function (event, context, callback) {
         }
     });
 };
+
+// Async Functions 
+// For more details, please refer to - https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html.
+
+// exports.handler = async (event, context) => {
+//   const response = {
+//     statusCode: 200,
+//     body: JSON.stringify({ message: 'hello world' })
+//   }
+//   return response
+// }
 
 exports.handler = moesif(moesifOptions, exports.handler);
