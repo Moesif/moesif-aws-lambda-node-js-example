@@ -11,10 +11,20 @@ const moesifOptions = {
 
     identifyUser: function (event, context) {
         return event.requestContext && event.requestContext.identity && event.requestContext.identity.cognitoIdentityId
+    },
+
+    // below is optional: but if you plan to metered billing, moesif have 1 to 1 mapping between company id and subscription id.
+    //
+    // - by providing a subscription id directly.
+    // - or providing a companyId, and during setting up Billing provider, set up mapping from subscription id to company id.
+    identifyCompany: function (event, context) {
+      return 'some company id or subscription id';
     }
 };
 
 var moesifMiddleware = moesif(moesifOptions);
+
+// optional. only if you want to capture outgoing api calls.
 moesifMiddleware.startCaptureOutgoing();
 
 exports.handler = function (event, context, callback) {
@@ -46,7 +56,7 @@ exports.handler = function (event, context, callback) {
     });
 };
 
-// Async Functions 
+// Async Functions
 // For more details, please refer to - https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html.
 
 // exports.handler = async (event, context) => {
