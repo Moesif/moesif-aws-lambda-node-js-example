@@ -9,11 +9,11 @@ This example is an express application with Moesif's API analytics and monitorin
 
 ## How to run this example.
 
-Create a new AWS Lambda function that is trigged by AWS API Gateway
+Create a new AWS Lambda function that is triggered by AWS API Gateway
 
 Upload this zip, when prompted for handler, enter `index.handler`
 
-You will also want to add an environment vairable `MOESIF_APPLICATION_ID` with the value being your 
+You will also want to add an environment variable `MOESIF_APPLICATION_ID` with the value being your
 application id from your Moesif account
 
 Go to the URL for the API gateway such as https://XXXXXX.execute-api.us-west-2.amazonaws.com/default/my-test-function
