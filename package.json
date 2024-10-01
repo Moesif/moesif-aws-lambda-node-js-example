@@ -18,7 +18,7 @@
   "author": "Xing Wang",
   "license": "Apache-2.0",
   "dependencies": {
-    "moesif-aws-lambda": "file:/../moesif-aws-lambda-nodejs/moesif-aws-lambda-2.0.12.tgz"
+    "moesif-aws-lambda": "file:/../moesif-aws-lambda-nodejs/moesif-aws-lambda-2.0.13.tgz"
   },
   "engines": {
     "node": "16.16.0"
